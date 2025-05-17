@@ -1,0 +1,14 @@
+# Start from OpenJDK base image
+FROM openjdk:17-jdk-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the jar file into the container
+COPY target/SmartContactManager.jar app.jar
+
+# Expose the port your app runs on (usually 8080)
+EXPOSE 8080
+
+# Command to run the jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
